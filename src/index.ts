@@ -3,6 +3,7 @@ dotenv.config();
     
 import { discordClient } from "utils/discordClient";
 import { registerCommands } from "commands/commands";
+import { loggerInvite } from "functions/loggerInvite";
 
 const client = discordClient;
 
@@ -11,7 +12,7 @@ const token = process.env.DISCORD_TOKEN!;
 registerCommands();
 
 export async function initBot(): Promise<void> {
-
+    
     client.on("ready", () => {
         console.log(`Logged in as ${client.user!.tag}!`);
     });
@@ -23,6 +24,7 @@ export async function initBot(): Promise<void> {
             await interaction.reply("Pong!");
         }
     });
+    loggerInvite();
 
     client.login(token);
 }
