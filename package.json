@@ -8,7 +8,9 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "dev": "bun --watch ./src/index.ts"
+    "dev": "bun --watch ./src/index.ts",
+    
+    "build": "echo "
   },
   "dependencies": {
     "@prisma/client": "^5.6.0",
