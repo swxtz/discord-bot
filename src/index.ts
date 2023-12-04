@@ -1,15 +1,17 @@
-import { registerCommands } from "commands/commands";
-import { Client, GatewayIntentBits } from "discord.js";
 import * as dotenv from "dotenv";
 dotenv.config();
+    
+import { discordClient } from "utils/discordClient";
+import { registerCommands } from "commands/commands";
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = discordClient;
 
 const token = process.env.DISCORD_TOKEN!;
 
 registerCommands();
 
 export async function initBot(): Promise<void> {
+
     client.on("ready", () => {
         console.log(`Logged in as ${client.user!.tag}!`);
     });
